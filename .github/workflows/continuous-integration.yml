@@ -20,9 +20,9 @@ jobs:
         cache: maven
         
     - name: Build Application JAR
-      working-directory: ./projeto-api-produtos/API-produto
+      working-directory: ./projeto-api-produtos/API-produto/
       run: mvn clean package
 
     - name: Docker Compose Build
-      working-directory: ./projeto-api-produtos
+      working-directory: ./projeto-api-produtos/
       run: docker compose build
