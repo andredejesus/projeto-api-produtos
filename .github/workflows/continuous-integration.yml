@@ -46,8 +46,7 @@ jobs:
 
     - name: Create tag, and push docker image to Amazon ECR
       run: |
-        docker tag andredejesus/api-produtos-ecr:latest 452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:${{ github.run_id }}
-        docker tag andredejesus/api-produtos-ecr:latest 452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:latest
+        docker tag api-produtos-ecr:latest 452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:latest
 
         docker push 452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:${{ github.run_id }}
         docker push 452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:latest
