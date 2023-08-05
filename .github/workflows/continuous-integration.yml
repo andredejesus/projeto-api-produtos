@@ -18,6 +18,12 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: andredejesus
+        password: a85628411        
         
     - name: Build Application JAR
       working-directory: ./API-produto/
@@ -40,8 +46,8 @@ jobs:
 
     - name: Create tag, and push docker image to Amazon ECR
       run:
-        docker tag img-api-produtos:latest 452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:${{ github.run_id }}
-        docker tag img-api-produtos:latest 452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:latest
+        docker tag andredejesus/img-api-produtos:latest andredejesus/452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:${{ github.run_id }}
+        docker tag andredejesus/img-api-produtos:latest andredejesus/452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:latest
 
         docker push ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
         docker push ${{ secrets.IMAGE_REPO_URL }}:latest
