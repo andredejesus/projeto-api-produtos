@@ -45,7 +45,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Create tag, and push docker image to Amazon ECR
-      run:
+      run: |
         docker tag andredejesus/img-api-produtos:latest ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
         docker tag andredejesus/img-api-produtos:latest ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}:latest
 
