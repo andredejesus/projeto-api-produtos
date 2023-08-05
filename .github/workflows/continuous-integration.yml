@@ -40,8 +40,8 @@ jobs:
 
     - name: Create tag, and push docker image to Amazon ECR
       run:
-        docker tag ${{ secrets.NAME_IMAGE_DOCKER }}:latest/${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
-        docker tag ${{ secrets.NAME_IMAGE_DOCKER }}:latest/${{ secrets.IMAGE_REPO_URL }}:latest
+        docker tag ${{ secrets.NAME_IMAGE_DOCKER }}:latest ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
+        docker tag ${{ secrets.NAME_IMAGE_DOCKER }}:latest ${{ secrets.IMAGE_REPO_URL }}:latest
 
         docker push ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
         docker push ${{ secrets.IMAGE_REPO_URL }}:latest
