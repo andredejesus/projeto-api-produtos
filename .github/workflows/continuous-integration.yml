@@ -52,5 +52,3 @@ jobs:
         docker push 452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:${{ github.run_id }}
         docker push 452284028608.dkr.ecr.us-east-1.amazonaws.com/api-produtos-ecr:latest
 
-
-        
